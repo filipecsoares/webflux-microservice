@@ -19,7 +19,7 @@ public class UserService {
         return repository.update(userId, amount);
     }
 
-    public Flux<UserResponse> all() {
+    public Flux<UserResponse> getAll() {
         return this.repository.findAll().map(Codec::toResponse);
     }
 
