@@ -5,12 +5,14 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.math.BigDecimal;
+
 @Data
 @ToString
 @Table("users")
 public class User {
     @Id
-    private Integer id;
+    private Long id;
     private String name;
-    private Integer amount;
+    private BigDecimal balance;
 }

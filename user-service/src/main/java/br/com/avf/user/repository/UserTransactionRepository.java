@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 
 @Repository
-public interface UserTransactionRepository extends ReactiveCrudRepository<UserTransaction, Integer> {
+public interface UserTransactionRepository extends ReactiveCrudRepository<UserTransaction, Long> {
 
-    Flux<UserTransaction> findByUserId(int userId);
+    Flux<UserTransaction> findByUserId(Long userId);
 }

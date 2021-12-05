@@ -8,9 +8,11 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
+
 @Repository
-public interface UserRepository extends ReactiveCrudRepository<User, Integer> {
+public interface UserRepository extends ReactiveCrudRepository<User, Long> {
     @Modifying
     @Query("update users set amount = amount - :amount where id = :userId and >= :amount")
-    Mono<Boolean> update(int userId, int amount);
+    Mono<Boolean> update(Long userId, BigDecimal amount);
 }

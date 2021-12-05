@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.math.BigDecimal;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository repository;
 
-    public Mono<Boolean> updateAmount(final Integer userId, final Integer amount) {
+    public Mono<Boolean> updateAmount(final Long userId, final BigDecimal amount) {
         return repository.update(userId, amount);
     }
 
@@ -23,7 +25,7 @@ public class UserService {
         return this.repository.findAll().map(Codec::toResponse);
     }
 
-    public Mono<UserResponse> getById(final int id) {
+    public Mono<UserResponse> getById(final Long id) {
         return this.repository.findById(id).map(Codec::toResponse);
     }
 
@@ -33,14 +35,14 @@ public class UserService {
                 .map(Codec::toResponse);
     }
 
-    public Mono<UserResponse> update(final int id, final Mono<UserRequest> requestMono) {
+    public Mono<UserResponse> update(final Long id, final Mono<UserRequest> requestMono) {
         return this.repository.findById(id)
                 .flatMap(user -> requestMono.map(Codec::toEntity).doOnNext(e -> e.setId(id)))
                 .flatMap(this.repository::save)
                 .map(Codec::toResponse);
     }
 
-    public Mono<Void> delete(final int id) {
+    public Mono<Void> delete(final Long id) {
         return this.repository.deleteById(id);
     }
 }

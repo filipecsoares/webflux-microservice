@@ -22,7 +22,7 @@ public class UserTransactionController {
     }
 
     @GetMapping
-    public Flux<UserTransaction> getByUserId(@RequestParam("userId") int userId) {
+    public Flux<UserTransaction> getByUserId(@RequestParam("userId") Long userId) {
         return this.userTransactionService.getByUserId(userId);
     }
 }

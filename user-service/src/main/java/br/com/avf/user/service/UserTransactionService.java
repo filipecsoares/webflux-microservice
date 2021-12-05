@@ -26,7 +26,7 @@ public class UserTransactionService {
                 .defaultIfEmpty(Codec.toResponse(request, UserTransactionStatus.NOT_APPROVED));
     }
 
-    public Flux<UserTransaction> getByUserId(int userId) {
+    public Flux<UserTransaction> getByUserId(Long userId) {
         return this.repository.findByUserId(userId);
     }
 }

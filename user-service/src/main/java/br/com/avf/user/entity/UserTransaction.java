@@ -5,14 +5,15 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @ToString
 public class UserTransaction {
     @Id
-    private Integer id;
-    private Integer userId;
-    private Integer amount;
+    private Long id;
+    private Long userId;
+    private BigDecimal amount;
     private LocalDateTime transactionDate;
 }

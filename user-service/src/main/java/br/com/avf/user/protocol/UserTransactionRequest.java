@@ -3,9 +3,11 @@ package br.com.avf.user.protocol;
 import lombok.Data;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 @Data
 @ToString
 public class UserTransactionRequest {
-    private Integer userId;
-    private Integer amount;
+    private Long userId;
+    private BigDecimal amount;
 }
