@@ -1,0 +1,7 @@
+server:
+  port: 8090
+spring:
+  r2dbc:
+    username:
+    password:
+    url: r2dbc:h2:mem:///userdb
