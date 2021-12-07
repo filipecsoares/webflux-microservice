@@ -1,0 +1,12 @@
+server:
+  port: 8093
+
+  spring:
+    data:
+      mongodb:
+        database: productdb
+
+spring:
+  mongodb:
+    embedded:
+      version: 3.0.0
